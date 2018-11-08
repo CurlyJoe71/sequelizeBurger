@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>
+    Burger Time!
+  </h1>
+   
+  <h3>
+    These burgers are waiting to be devoured...
+  </h3>
+    {{#each burgers}}
+      {{#unless devoured}}
+        <div class="burger animation">
+          <p>
+            #
+            {{id}}
+            -
+            {{burger_name}}
+          </p>
+          <button class="change-devour bun" data-id={{id}} data-status={{devoured}}>
+            EAT ME!
+          </button>
+        </div>   
+      {{/unless}}    
+    {{/each}}
+  
+  <h3>
+    You've already devoured these burgers...
+  </h3>
+  <ul>
+    {{#each burgers}}
+      {{#if devoured}}
+      <div class="burger animation">
+        <p>
+          #
+          {{id}}
+          -
+          {{burger_name}}
+        </p>
+        <button class="change-devour vomit" data-id={{id}} data-status={{devoured}}>
+          VOMIT!
+        </button>
+        </div>
+      {{/if}}
+    {{/each}}
+  </ul>
+  <h3>
+    Add a new burger!
+  </h3>
+  <form class="create-form">
+    <div class="form-group">
+      <label for="sammie">
+        Add your new burger here:
+      </label>
+      <input type="text" id="sammie" name="name" />
+    </div>
+    <button class="bun" type="submit">
+      Add Burger!
+    </button>
+  </form>
+</div>
